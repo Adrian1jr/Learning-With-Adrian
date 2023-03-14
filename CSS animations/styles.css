@@ -1,0 +1,176 @@
+.container {
+  padding: 20px;
+}
+
+.custom_btn {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.custom_ball {
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+/* Lesson 1 - Translate, transform, transition */
+
+/* --------------- Cosas utilizadas ---------------
+    translateX, translateY, translateZ, 
+    transform
+    transition
+    transition-delay
+    transition-duration
+    transition-property
+    transition-timing-function
+    ----------------- Cosas utilizadas --------------- */
+
+.transition_btn {
+  transition-timing-function: ease;
+  /* Puedes declarar la duration de cada prop o una para todos */
+  transition-duration: 0.5s;
+  /* Especificar tus propediades dara un mejor rendimiento a tu app, pero igual
+  puedes utilizar, "all" si quieras ocupar menos codigo  */
+  transition-property: background-color, color, width;
+  /* Si vas a hacer algo de width primero debes declararle una base */
+  width: 150px;
+
+  /* Tambien podrias usar algo como
+    transition: background-color 0.5s ease, color 0.5s ease, width 0.5s ease;
+
+    RECUERDA usar tu duration time antes de tu delay time 
+  */
+}
+
+.transition_btn:hover {
+  background-color: #f00;
+  color: #fff;
+  width: 200px;
+}
+
+.transform_btn {
+  transition-delay: 1s;
+  transition-duration: 5s;
+  transition-property: transform;
+}
+
+.transform_btn:hover {
+  transform: rotate(360deg);
+}
+
+.my_example {
+  transition: all ease 1s;
+}
+
+.my_example:hover {
+  transform: translateX(100px);
+}
+
+/* Lesson 2 - Easing y timing function */
+
+/* --------------- Cosas utilizadas ---------------
+    ease
+    ease-in
+    ease-out
+    ease-in-out
+    linear
+    cubic-bezier - este es mas complejo pero mas divertido
+    ----------------- Cosas utilizadas --------------- */
+
+.easing_btn {
+  transition-duration: 1s;
+  transition: all ease 1s linear;
+  width: 150px;
+}
+
+.easing_btn:hover {
+  width: 200px;
+}
+
+.easing_out {
+  transition-duration: 1s;
+  transition: all ease-out 1s;
+  width: 150px;
+}
+
+.easing_out:hover {
+  width: 200px;
+}
+
+.easing_in_out {
+  transition-duration: 1s;
+  transition: all ease-in-out 1s;
+  width: 150px;
+}
+
+.easing_in_out:hover {
+  width: 200px;
+}
+
+.cubic_beizer {
+  transition-duration: 1s;
+  /* cubic-bezier(<x1>, <y1>, <x2>, <y2>) */
+  transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+  width: 150px;
+}
+
+.cubic_beizer:hover {
+  width: 200px;
+}
+
+/* Lesson 3 - Keyframes */
+
+/* --------------- Cosas utilizadas ---------------
+    @keyframes
+    animation-name
+    animation-duration
+    animation-iteration-count
+    animation-direction
+    animation-timing-function
+    animation-delay
+    animation-fill-mode
+    animation-play-state
+    ----------------- Cosas utilizadas --------------- */
+
+.ball {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  cursor: pointer;
+}
+
+.ball:hover {
+  /* animation-play-state: paused;  --pauso al tocar */
+  animation-name: jump;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    /* x y  */
+    transform: translate(100px, -45px);
+  }
+  50% {
+    transform: translate(150px, 0px);
+  }
+  75% {
+    transform: translate(200px, -45px);
+  }
+  100% {
+    transform: translate(250px, 0px);
+  }
+}
