@@ -22,7 +22,7 @@
 
 /* Lesson 1 - Translate, transform, transition */
 
-/* --------------- Cosas utilizadas ---------------
+/* --------------- Cosas utilizadas o que se pueden utilizar ---------------
     translateX, translateY, translateZ, 
     transform
     transition
@@ -30,7 +30,7 @@
     transition-duration
     transition-property
     transition-timing-function
-    ----------------- Cosas utilizadas --------------- */
+*/
 
 .transition_btn {
   transition-timing-function: ease;
@@ -75,14 +75,14 @@
 
 /* Lesson 2 - Easing y timing function */
 
-/* --------------- Cosas utilizadas ---------------
+/* --------------- Cosas utilizadas o que se pueden utilizar ---------------
     ease
     ease-in
     ease-out
     ease-in-out
     linear
     cubic-bezier - este es mas complejo pero mas divertido
-    ----------------- Cosas utilizadas --------------- */
+ */
 
 .easing_btn {
   transition-duration: 1s;
@@ -127,7 +127,7 @@
 
 /* Lesson 3 - Keyframes */
 
-/* --------------- Cosas utilizadas ---------------
+/* --------------- Cosas utilizadas o que se pueden utilizar ---------------
     @keyframes
     animation-name
     animation-duration
@@ -137,7 +137,7 @@
     animation-delay
     animation-fill-mode
     animation-play-state
-    ----------------- Cosas utilizadas --------------- */
+  */
 
 .ball {
   border-radius: 50%;
@@ -172,5 +172,63 @@
   }
   100% {
     transform: translate(250px, 0px);
+  }
+}
+
+/* Lesson 4 - 3D animation */
+.container {
+  padding: 50px;
+}
+
+.cube {
+  animation: spinCube 8s infinite ease-in-out;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 200px;
+}
+
+.cube__face {
+  align-items: center;
+  background-color: rgba(155, 155, 155, 0.8);
+  border: solid 2px #111;
+  display: flex;
+  font-size: 40px;
+  height: 200px;
+  justify-content: center;
+  position: absolute;
+  width: 200px;
+}
+
+.cube__face--front {
+  transform: rotateY(0deg) translateZ(100px);
+}
+
+.cube__face--right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube__face--back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube__face--left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube__face--top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spinCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
   }
 }
