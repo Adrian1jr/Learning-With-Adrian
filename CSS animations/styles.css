@@ -176,59 +176,93 @@
 }
 
 /* Lesson 4 - 3D animation */
-.container {
-  padding: 50px;
-}
-
-.cube {
-  animation: spinCube 8s infinite ease-in-out;
-  height: 200px;
+.card {
+  height: 300px;
   position: relative;
-  transform-style: preserve-3d;
+  transform-style: preserve-3d; /* CSS property allows for the children of an element to be animated in the 3D space*/
+  transition: transform 1s ease-in-out;
   width: 200px;
 }
 
-.cube__face {
-  align-items: center;
-  background-color: rgba(155, 155, 155, 0.8);
-  border: solid 2px #111;
+.card_face {
   display: flex;
-  font-size: 40px;
-  height: 200px;
+  /* 
+    Esto es para que no se vea el contenido de la cara de la carta
+    cuando se esta rotando
+  */
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  height: 100%;
+  width: 100%;
+  border: solid 5px #000;
   position: absolute;
-  width: 200px;
+  color: #fff;
 }
 
-.cube__face--front {
-  transform: rotateY(0deg) translateZ(100px);
+.card_face_front {
+  background-color: #00f;
 }
 
-.cube__face--right {
-  transform: rotateY(90deg) translateZ(100px);
+.card_face_back {
+  background-color: #ffa500;
+  transform: rotateY(180deg);
 }
 
-.cube__face--back {
-  transform: rotateY(180deg) translateZ(100px);
+.card:hover {
+  transform: rotateY(180deg);
 }
 
-.cube__face--left {
-  transform: rotateY(-90deg) translateZ(100px);
+/* Lesson 5 - Navbars! */
+ul {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 500px;
 }
 
-.cube__face--top {
-  transform: rotateX(90deg) translateZ(100px);
+li {
+  list-style: none;
 }
 
-.cube__face--bottom {
-  transform: rotateX(-90deg) translateZ(100px);
+a {
+  color: #333;
+  display: block;
+  font-family: roboto;
+  font-size: 20px;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  transition: 0.5s ease-in-out;
 }
 
-@keyframes spinCube {
-  0% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  100% {
-    transform: rotateX(360deg) rotateY(360deg);
-  }
+span {
+  display: block;
+  transition: transform 0.5s ease-in-out;
+}
+
+a::after {
+  background-color: #333;
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+a:hover {
+  color: blue;
+}
+
+a:hover span {
+  transform: translateY(-7px);
+}
+
+a:hover::after {
+  transform: scaleX(1);
 }
